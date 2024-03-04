@@ -39,6 +39,7 @@ def load_data():
 
 def setup_sidebar(min_date, max_date):
     with st.sidebar:
+        st.subheader('Rental Sepeda')
         st.image("https://cdn.pixabay.com/photo/2012/04/28/19/26/bicycles-44154_960_720.png")
         
         start_date, end_date = st.date_input(
