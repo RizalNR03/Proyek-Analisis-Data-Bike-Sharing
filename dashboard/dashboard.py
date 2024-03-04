@@ -42,12 +42,17 @@ def setup_sidebar(min_date, max_date):
         st.subheader('Rental Sepeda')
         st.image("https://cdn.pixabay.com/photo/2012/04/28/19/26/bicycles-44154_960_720.png")
         
-        start_date, end_date = st.date_input(
+        selected_dates = st.date_input(
             label='Rentang Waktu', min_value=min_date,
             max_value=max_date,
             value=[min_date, max_date]
         )
-    
+
+    # Periksa apakah sudah ada dua tanggal yang dimasukkan
+        if len(selected_dates) != 2:
+            raise ValueError("Masukkan rentang waktu yang lengkap. Mohon pilih kedua tanggal.")
+        
+        start_date, end_date = selected_dates
     return start_date, end_date
 
 def filter_data(bike_sharing_df, start_date, end_date):
